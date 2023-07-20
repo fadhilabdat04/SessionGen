@@ -26,7 +26,7 @@ from env import API_ID, API_HASH
 from data import Data
 
 
-ask_ques = "<b>Silakan Pilih Ya Anjeng Lu Mo Buat Apa</b>"
+ask_ques = "<b>Lu pilih dah Nyet lu mau buat string apaan</b>"
 buttons_ques = [
     [
         InlineKeyboardButton("Pyrogram", callback_data="pyrogram"),
@@ -66,7 +66,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     """
     await asyncio.sleep(1.0)
     if not is_bot:
-        t = "**Woy Bangsat Kirim Nomer Akun Telegram Lu.** \n**Contoh** : `+6214045` **Jing Jadi Laper Gua**"
+        t = "**Masukin dah tuh nomor tele lu pea.** \n**Contoh** : `+6214045` **Nah lu tungguin abis ntu**"
     else:
         t = "Now please send your `BOT_TOKEN` \nExample : `12345:abcdefghijklmnopqrstuvwxyz`'"
     phone_number_msg = await bot.ask(user_id, t, filters=filters.text)
@@ -74,9 +74,9 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         return
     phone_number = phone_number_msg.text
     if not is_bot:
-        await msg.reply("**Bentar Jink Ngirim OTP Ke Akun Lu...**")
+        await msg.reply("**Sabar ya lagi Ngirim OTP Ke Akun Lu...**")
     else:
-        await msg.reply("**Bentar Jink Ngirim OTP Ke Akun Lu...**")
+        await msg.reply("**Sabar ya lagi OTP Ke Akun Lu...**")
     if telethon and is_bot:
         client = TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash)
     elif telethon:
@@ -102,11 +102,11 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
     try:
         phone_code_msg = None
         if not is_bot:
-            phone_code_msg = await bot.ask(user_id, "**Eh Bangsat periksa OTP Di Akun Telegram Lu, Buru cepet kirim OTP ke sini.** \n **Cara Masukin OTP kek gini** `1 2 3 4 5`\n**Jangan Salah Ya Nyet.**", filters=filters.text, timeout=600)
+            phone_code_msg = await bot.ask(user_id, "**Lu periksa dah tuh OTP Di Akun Telegram Lu, Buru cepet kirim OTP ke sini.** \n **Cara Masukin OTP kek gini** `1 2 3 4 5`\n**Jangan Salah Ya Nyet.**", filters=filters.text, timeout=600)
             if await cancelled(phone_code_msg):
                 return
     except TimeoutError:
-        await msg.reply('**Ngaret Lu Anjeng Lama...**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await msg.reply('**yah kelamaan kan pea...**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     if not is_bot:
         phone_code = phone_code_msg.text.replace(" ", "")
@@ -123,7 +123,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
             return
         except (SessionPasswordNeeded, SessionPasswordNeededError):
             try:
-                two_step_msg = await bot.ask(user_id, '**Masukin Password Akun Lu Jing.**', filters=filters.text, timeout=300)
+                two_step_msg = await bot.ask(user_id, '**Ribet di verif segala, Masukin Pw Akun lu buru.**', filters=filters.text, timeout=300)
             except TimeoutError:
                 await msg.reply('**Anjeng, Demen Banget Ngaret Jadi Manusia**', reply_markup=InlineKeyboardMarkup(Data.generate_button))
                 return
@@ -148,7 +148,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-    text = f"**{ty.upper()} NIH JING.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**"
+    text = f"**{ty.upper()} Nih String lu udeh jadi.** \n\n`{string_session}` \n\n**Minimal Bilang Makasih Ke** @Arabnihnge **Atau Ke** @SiArabSupport **Karna Akun Lu Kaga Deak**"
     try:
         if not is_bot:
             await client.send_message("me", text)
@@ -158,7 +158,7 @@ async def generate_session(bot: Client, msg: Message, telethon=False, is_bot: bo
         pass
     await client.disconnect()
     await asyncio.sleep(1.0)
-    await bot.send_message(msg.chat.id, " {} **Dah Jadi Ya Bangsat.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @Rizzvbss **Atau Ke** @KynanSupport **Karna Akun Lu Kaga Deak**".format("telethon" if telethon else "pyrogram"))
+    await bot.send_message(msg.chat.id, " {} **Dah Jadi tuh string lu.** \n\n**Cek Pesan Tersimpan Lu Yang Banyak Bokep Nya!** \n\n**Minimal Bilang Makasih Ke** @Arabnihnge **Atau Ke** @SiArabSupport **Karna Akun Lu Kaga Deak**".format("telethon" if telethon else "pyrogram"))
 
 
 async def cancelled(msg):
