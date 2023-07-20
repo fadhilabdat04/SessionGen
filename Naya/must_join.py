@@ -19,10 +19,10 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"Si Anjeng, Masuk Sini Dulu Lu Bangsat !",
+                    f"Join Dulu Kampang Baru Pencet /start Lagi !",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("Sini Nyet Masuk, Jangan Lupa Salam", url=link)]
+                        [InlineKeyboardButton("Masuk sini nyet, Jangan Lupa Salam", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
