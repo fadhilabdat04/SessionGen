@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_ID = os.getenv("API_ID", "").strip()
-API_HASH = os.getenv("API_HASH", "").strip()
-BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
+API_ID = os.getenv("API_ID", "12857763").strip()
+API_HASH = os.getenv("API_HASH", "7b71e8bca0d5e1c6d8383ae818d9ec8d").strip()
+BOT_TOKEN = os.getenv("BOT_TOKEN", "6375262996:AAFZBXDHSjs6Yn5M_1CbV_XS-tWQqG_wYX4").strip()
 DATABASE_URL = os.getenv("DATABASE_URL", "").strip() # Not a necessary variable anymore but you can add to get stats
 MUST_JOIN = os.getenv("MUST_JOIN", "kynansupport")
 
