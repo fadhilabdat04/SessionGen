@@ -1,5 +1,5 @@
 import asyncio
-from telethon import TelegramClient
+from telethon import Client
 from pyrogram.types import Message
 from pyrogram import Client, filters
 from asyncio.exceptions import TimeoutError
