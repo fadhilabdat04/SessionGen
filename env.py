@@ -6,7 +6,7 @@ load_dotenv()
 API_ID = os.getenv("API_ID", "12857763").strip()
 API_HASH = os.getenv("API_HASH", "7b71e8bca0d5e1c6d8383ae818d9ec8d").strip()
 BOT_TOKEN = os.getenv("BOT_TOKEN", "6375262996:AAFZBXDHSjs6Yn5M_1CbV_XS-tWQqG_wYX4").strip()
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://doadmin:AVNS_AwPPPTzSMZCS0nL2h-J@arab-database-do-user-14312013-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require").strip() # Not a necessary variable anymore but you can add to get stats
+DATABASE_URL = os.getenv("DATABASE_URL", "postgres://hzuxnrbc:C0n4fUsTXHixFOwGeso1YkuBtUJIt9Cb@rosie.db.elephantsql.com/hzuxnrbc").strip() # Not a necessary variable anymore but you can add to get stats
 MUST_JOIN = os.getenv("MUST_JOIN", "SiArabSupport")
 
 if not API_ID:
